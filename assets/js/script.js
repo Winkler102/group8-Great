@@ -19,15 +19,24 @@ var genreList = function () {
 genreList()
 
 let fetchResturant = function (foodZip, foodType) {
-    foodApiAddress = 'https://api.documenu.com/v2/restaurants/zip_code/' + foodZip + '?size=5&cuisine=' + foodType + '&key=983626163e2a685b3ade4ddc277fc658'
-    fetch(foodApiAddress)
-        .then(function (foodResponse) {
-            foodResponse.json().then(function (foodData) {
-                console.log(foodData);
-            })
-        })
+  foodApiAddress = 'https://api.documenu.com/v2/restaurants/zip_code/' + foodZip + '?size=5&cuisine=' + foodType + '&key=983626163e2a685b3ade4ddc277fc658'
+  fetch(foodApiAddress)
+    .then(function (foodResponse) {
+      foodResponse.json().then(function (foodData) {
+        randomFood = randomNumGen();
+        foodName = foodData.data[randomFood].restaurant_name;
+        foodSite = foodData.data[randomFood].restaurant_website;
+        let foodButton = document.createElement('a')
+        foodButton.setAttribute('href', foodSite);
+        foodButton.setAttribute('target', '_blank');
+        foodButton.textContent = foodName;
+      })
+    })
 };
 
+let randomNumGen = function () {
+  return Math.floor(Math.random() * 5);
+};
 
 fetchResturant('78728', 'american')
 

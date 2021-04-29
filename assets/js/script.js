@@ -19,7 +19,6 @@ var genreList = function () {
 
 genreList()
 
-<<<<<<< HEAD
 // A function to allow search by Movie title
 var titleQuery = function () {
   fetch(' https://api.themoviedb.org/3/search/movie?api_key=f0c90416c29040e056b30db72789fae5&language=en-US&page=1&include_adult=false&query="King Kong"')
@@ -37,17 +36,4 @@ var elementGrabId = function get (x) {
 }
 // --goes here
 // then take the output of that text input element function above and use it as the pass-through for query
-=======
-let fetchResturant = function (foodZip, foodType) {
-    foodApiAddress = 'https://api.documenu.com/v2/restaurants/zip_code/' + foodZip + '?size=1&cuisine=' + foodType + '&key=983626163e2a685b3ade4ddc277fc658'
-    fetch(foodApiAddress)
-        .then(function (foodResponse) {
-            foodResponse.json().then(function (foodData) {
-                console.log(foodData);
-            })
-        })
-}
-
-fetchResturant('78728', 'american')
-
->>>>>>> f2af21c1f213e985dba33d4e44a3489ad84110c4
+>>>>>>> develop

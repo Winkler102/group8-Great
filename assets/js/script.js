@@ -1,5 +1,9 @@
 // We Are awesome 
 let genreEl = document.querySelector('#genre')
+let zipRequestEl = document.querySelector('#zipRequest');
+let zipSubmitEl = document.querySelector('#zipSubmit');
+let zipFormEl = document.querySelector('#zipForm')
+let searchHistory = [];
 
 var genreSelector = function () {
   fetch('https://api.themoviedb.org/3/discover/movie?api_key=f0c90416c29040e056b30db72789fae5&with_genres=16&language=en-US')
@@ -8,7 +12,6 @@ var genreSelector = function () {
 
     .then(data => console.log(data))
 }
-genreSelector()
 
 var genreList = function () {
   fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f0c90416c29040e056b30db72789fae5&language=en-US')
@@ -17,8 +20,6 @@ var genreList = function () {
 
     .then(data => console.log(data))
 }
-
-genreList()
 
 let fetchResturant = function (foodZip, foodType) {
   foodApiAddress = 'https://api.documenu.com/v2/restaurants/zip_code/' + foodZip + '?size=5&cuisine=' + foodType + '&key=983626163e2a685b3ade4ddc277fc658'
@@ -44,5 +45,17 @@ let randomNumGen = function () {
   return Math.floor(Math.random() * 5);
 };
 
-fetchResturant('78728', 'american')
+let pullZip = function () {
+  zipCode = zipRequestEl.value;
+  console.log(zipCode);
+};
 
+let handleSelection = function () {
+  console.log(genreEl.value);
+};
+
+genreEl.addEventListener('change', handleSelection)
+zipFormEl.addEventListener('submit', pullZip)
+fetchResturant('78728', 'american')
+genreList()
+genreSelector()

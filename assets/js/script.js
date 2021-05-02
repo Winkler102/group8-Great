@@ -1,17 +1,13 @@
 // We Are awesome
-var genreSelector = function () {
-  fetch('https://api.themoviedb.org/3/discover/movie?api_key=f0c90416c29040e056b30db72789fae5&with_genres=16&language=en-US')
-=======
-// We Are awesome
 let genreEl = document.querySelector('#genre')
 let zipRequestEl = document.querySelector('#zipRequest');
 let zipSubmitEl = document.querySelector('#zipSubmit');
 let zipFormEl = document.querySelector('#zipForm')
 let searchHistory = [];
+let cuisinelist = ['Sandwiches', 'American', 'Bar Food', 'Italian', 'Mexican', 'Pizza', 'Dali Food', 'Japanese']
 
 var genreSelector = function (genre) {
   fetch('https://api.themoviedb.org/3/discover/movie?api_key=f0c90416c29040e056b30db72789fae5&with_genres=' + genre + '&language=en-US')
->>>>>>> 1b09c75bf392373ba143409484d6d5ca5d65a802
 
     .then(response => response.json())
 
@@ -33,7 +29,7 @@ let fetchResturant = function (foodZip, foodType) {
       if (foodResponse.ok) {
         foodResponse.json().then(function (foodData) {
           if (foodData.data[0]) {
-            randomFood = randomNumGen();
+            randomFood = randomNumGen(foodData.data.length);
             foodName = foodData.data[randomFood].restaurant_name;
             foodSite = foodData.data[randomFood].restaurant_website;
             createFoodLink()
@@ -55,26 +51,43 @@ let createFoodLink = function () {
   foodButton.textContent = foodName;
 }
 
-let randomNumGen = function () {
-  return Math.floor(Math.random() * 5);
+let randomNumGen = function (max) {
+  return Math.floor(Math.random() * max);
 };
 
-<<<<<<< HEAD
-=======
+
 let pullZip = function () {
   event.preventDefault();
   zipCode = zipRequestEl.value;
   zipRequestEl.value = "";
 };
 
+let saveHistory = function () {
+  historyString = JSON.stringify(searchHistory)
+  localStorage.setItem('history', historyString)
+}
+
+let loadHistory = function () {
+  let searchHistory = JSON.parse(localStorage.getItem('history'));
+  if (searchHistory) {
+    return
+  }
+  searchHistory = [];
+}
+
 let handleSelection = function () {
-  console.log(genreEl.value);
-  console.log(zipCode);
   genreSelector(genreEl.value);
-  fetchResturant(zipCode, 'american')
+  randomCusine = randomNumGen(cuisinelist.length);
+  fetchResturant(zipCode, cuisinelist[randomCusine])
+  let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCusine] };
+  searchHistory.push(addSave);
+  saveHistory();
 };
 
 genreEl.addEventListener('change', handleSelection)
 zipFormEl.addEventListener('submit', pullZip)
 genreList()
->>>>>>> 1b09c75bf392373ba143409484d6d5ca5d65a802
+
+loadHistory();
+
+

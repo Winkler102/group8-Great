@@ -1,4 +1,4 @@
-// We Are awesome 
+// We Are awesome
 let genreEl = document.querySelector('#genre')
 let zipRequestEl = document.querySelector('#zipRequest');
 let zipSubmitEl = document.querySelector('#zipSubmit');
@@ -55,6 +55,7 @@ let randomNumGen = function (max) {
   return Math.floor(Math.random() * max);
 };
 
+
 let pullZip = function () {
   event.preventDefault();
   zipCode = zipRequestEl.value;
@@ -86,4 +87,7 @@ let handleSelection = function () {
 genreEl.addEventListener('change', handleSelection)
 zipFormEl.addEventListener('submit', pullZip)
 genreList()
+
 loadHistory();
+
+

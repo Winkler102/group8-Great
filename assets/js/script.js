@@ -5,7 +5,13 @@ let zipSubmitEl = document.querySelector('#zipSubmit');
 let zipFormEl = document.querySelector('#zipForm')
 let searchHistory = [];
 
-var genreSelector = function (genre) {
+function get (x) {
+  return document.getElementById (x);
+}
+
+
+
+const genreSelector = function (genre) {
   fetch('https://api.themoviedb.org/3/discover/movie?api_key=f0c90416c29040e056b30db72789fae5&with_genres=' + genre + '&language=en-US')
 
     .then(response => response.json())
@@ -13,13 +19,16 @@ var genreSelector = function (genre) {
     .then(data => console.log(data))
 }
 
-// Fetch request for a list of all genres - use to find the numbers mapping to the genre
-var genreList = function () {
+// Fetch request for a list of all genres - use to find the numbers mapping to the genre. Returns an Object
+let genreList = function () {
   fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f0c90416c29040e056b30db72789fae5&language=en-US')
-
     .then(response => response.json())
-
     .then(data => console.log(data))
+    .then(data.forEach((item, i) => {
+      var newItem = document.createElement('li')
+      get ('genre').appendChild(newItem)
+    })
+    )
 }
 
 let fetchResturant = function (foodZip, foodType) {
@@ -51,6 +60,7 @@ let createFoodLink = function () {
   foodButton.textContent = foodName;
 }
 
+// generic function for Random Number
 let randomNumGen = function () {
   return Math.floor(Math.random() * 5);
 };

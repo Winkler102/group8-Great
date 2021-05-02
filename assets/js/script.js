@@ -80,6 +80,7 @@ let saveHistory = function () {
 let loadHistory = function () {
   searchHistory = JSON.parse(localStorage.getItem('history'));
   if (searchHistory) {
+    displayHistory();
     return;
   }
   searchHistory = [];
@@ -88,13 +89,17 @@ let loadHistory = function () {
 let displayHistory = function () {
   for (i = 0; i < searchHistory.length; i++) {
     historyButton = document.createElement('button');
-    historyButton.setAttribute('onclick', 'handleHistory(' + searchHistory[i].genreType + ' , ' + searchHistory[i].cusineType + ')');
-    historyButton.textContent = '';
+    historyGenre = searchHistory[i].genreType;
+    historyCusine = searchHistory[i].cusineType;
+    historyButton.setAttribute('onclick', 'handleHistory()');
+    historyButton.textContent = 'PastChoice';
+    searchHistoryEl.appendChild(historyButton);
   }
 };
 
-let handleHistory = function (searchGenre, searchCusine) {
-
+let handleHistory = function () {
+  genreSelector(historyGenre);
+  fetchResturant(zipCode, historyCusine);
 };
 
 let handleSelection = function () {

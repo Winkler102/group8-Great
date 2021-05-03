@@ -7,7 +7,7 @@ let searchHistory = [];
 let cuisinelist = ['Sandwiches', 'American', 'Bar Food', 'Italian', 'Mexican', 'Pizza', 'Dali Food', 'Japanese']
 
 function get (x) {
-  return document.getElementById (x);
+  return document.getElementById (x)
 }
 
 
@@ -25,8 +25,8 @@ let genreList = function () {
   fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f0c90416c29040e056b30db72789fae5&language=en-US')
     .then(response => response.json())
     .then(data => console.log(data))
-    .then(data.forEach((item, i) => {
-      var newItem = document.createElement('li')
+    .then(data.genres.forEach((item, i) => {
+      var newItem = document.createElement('option')
       get ('genre').appendChild(newItem)
     })
     )
@@ -87,9 +87,9 @@ let loadHistory = function () {
 
 let handleSelection = function () {
   genreSelector(genreEl.value);
-  randomCusine = randomNumGen(cuisinelist.length);
-  fetchResturant(zipCode, cuisinelist[randomCusine])
-  let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCusine] };
+  randomCuisine = randomNumGen(cuisinelist.length);
+  fetchResturant(zipCode, cuisinelist[randomCuisine])
+  let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCuisine] };
   searchHistory.push(addSave);
   saveHistory();
 };

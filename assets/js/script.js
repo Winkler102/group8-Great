@@ -1,4 +1,4 @@
-// We Are awesome 
+// We Are awesome
 let genreEl = document.querySelector('#genre')
 let zipRequestEl = document.querySelector('#zipRequest');
 let zipSubmitEl = document.querySelector('#zipSubmit');
@@ -111,8 +111,11 @@ let handleSelection = function () {
   saveHistory();
 };
 
-genreEl.addEventListener('change', handleSelection);
-zipFormEl.addEventListener('submit', pullZip);
-// genreList();
+
+genreEl.addEventListener('change', handleSelection)
+zipFormEl.addEventListener('submit', pullZip)
+genreList()
+
 loadHistory();
-loadZip();
+
+

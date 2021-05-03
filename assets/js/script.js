@@ -111,8 +111,8 @@ let handleSelection = function () {
   saveHistory();
 };
 
-genreEl.addEventListener('change', handleSelection)
-zipFormEl.addEventListener('submit', pullZip)
-// genreList()
+genreEl.addEventListener('change', handleSelection);
+zipFormEl.addEventListener('submit', pullZip);
+// genreList();
 loadHistory();
 loadZip();

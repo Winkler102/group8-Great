@@ -36,10 +36,12 @@ let fetchResturant = function (foodZip, foodType) {
           }
           else {
             console.log('No results')
+            errorFood = document.createElement('p')
+            errorFood.textContent = 'No Results';
           }
         })
       } else {
-        alert(foodResponse.statusText)
+        console.log(foodResponse.statusText)
       }
     })
 };
@@ -86,8 +88,6 @@ let handleSelection = function () {
 
 genreEl.addEventListener('change', handleSelection)
 zipFormEl.addEventListener('submit', pullZip)
-genreList()
 
+genreList();
 loadHistory();
-
-

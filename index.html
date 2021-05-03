@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="assets/styles/style.css">
   <title>Document</title>
 </head>
 
 <body>
 
-<nav class="header" id='navbar'>
+  <nav class="header" id='navbar'>
     <section>
       <h1>Welcome to MovieX</h1>
       <ul>
@@ -27,44 +28,43 @@
     </section>
   </nav>
 
-<section class="header" id="intro">
-  <div>
-    <h1>Find Your Friday Night</h1>
-  </div>
-  <div> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
-    Netflix and Chill? it's dinner and a movie</div>
+  <section class="header" id="intro">
+    <div>
+      <h1>Find Your Friday Night</h1>
+    </div>
+    <div> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
+      Netflix and Chill? it's dinner and a movie</div>
+    <br>
     <button id="myBtn" class="btn">Click Here to Start!</button>
-</section>
+  </section>
 
+  <!-- Please make this a modal that pops up on open-->
+  <section class="modal" id="myModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="zipForm">
+        <label for="zipRequest">Please enter a zip code:</label>
+        <input type="text" id="zipRequest" name="zipRequest" placeholder="Ex 11211">
+        <button type="submit" id="zipSubmit">Submit</button>
+      </form>
+      <!-- Selection for intial Genre-->
+      <label for="genre">Choose a Genre:</label>
+      <select name="genre" id="genre">
+        <option selected disabled>Please Choose A Genre</option>
+        <option value="28">Action</option>
+        <option value="12">Adventure</option>
+        <option value="16">Animation</option>
+        <option value="35">Comedy</option>
+      </select>
+    </div>
+  </section>
+  <div id="searchHistory"></div>
 
-<!-- Please make this a modal that pops up on open-->
-<section class ="myModal">
-  <div>
-    <span class="close">&times;</span>
-  <form id="zipForm">
-    <label for="zipRequest">Please enter a zip code:</label>
-    <input type="text" id="zipRequest" name="zipRequest" placeholder="Ex 11211">
-    <button type="submit" id="zipSubmit">Submit</button>
-  </form>
-</div>
-<!-- Selection for intial Genre-->
-<div>
-  <label for="genre">Choose a Genre:</label>
-  <select name="genre" id="genre">
-    <option selected disabled>Please Choose A Genre</option>
-    <option value="28">Action</option>
-    <option value="12">Adventure</option>
-    <option value="16">Animation</option>
-    <option value="35">Comedy</option>
-  </select>
-</div>
-</section>
-<div id="searchHistory"></div>
-
-<div id="results"></div>
+  <div id="results"></div>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
->>>>>>> a3293bc054c9d0e4cf6a3282354e123fe95ea0f5
+<!-- >>>>>>> a3293bc054c9d0e4cf6a3282354e123fe95ea0f5
 
 
->>>>>>> 1b09c75bf392373ba143409484d6d5ca5d65a802
+>>>>>>> 1b09c75bf392373ba143409484d6d5ca5d65a802 -->

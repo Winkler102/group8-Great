@@ -136,7 +136,7 @@ let loadHistory = function () {
 }
 
 let displayHistory = function () {
-  for (i = 0; i < searchHistory.length; i++) {
+  for (i = 0; i < 5; i++) {
     historyButton = document.createElement('button');
     historyGenre = searchHistory[i].genreType;
     historyCusine = searchHistory[i].cusineType;
@@ -159,6 +159,7 @@ let handleSelection = function () {
   let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCuisine] };
   searchHistory.push(addSave);
   saveHistory();
+  genreEl.selectedIndex = 0;
 };
 
 

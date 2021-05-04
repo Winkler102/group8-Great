@@ -62,7 +62,10 @@ let genreList = function () {
     .then(response => response.json())
     .then(data => data.genres.forEach((item, i) => {
       var newItem = document.createElement('option')
-      get('genre').appendChild(newItem)
+      newItem.value = JSON.stringify({ id: item.id, nameGenre: item.name });
+      newItem.textContent = item.name;
+      newItem.setAttribute(`data-genre`, item.name);
+      genreEl.appendChild(newItem)
     })
     )
 }
@@ -106,8 +109,10 @@ let fetchResturant = function (foodZip, foodType) {
 };
 
 let createFoodLink = function () {
+  if (!foodSite) {
+    foodSite = 'https://www.grubhub.com';
+  }
   foodButton = document.createElement('a')
-  console.log(foodSite);
   foodButton.setAttribute('href', foodSite);
   foodButton.setAttribute('target', '_blank');
   foodButton.textContent = foodName;
@@ -155,7 +160,7 @@ let displayHistory = function () {
     historyGenre = searchHistory[i].genreType;
     historyCusine = searchHistory[i].cusineType;
     historyButton.setAttribute('onclick', 'handleHistory()');
-    historyButton.textContent = 'place Holder text';
+    historyButton.textContent = searchHistory[i].genreName;
     searchHistoryEl.appendChild(historyButton);
   }
 };
@@ -165,13 +170,15 @@ let handleHistory = function () {
   fetchResturant(zipCode, historyCusine);
 };
 
-let handleSelection = function () {
+let handleSelection = function (e) {
+
+  genreObject = JSON.parse(e.target.value);
+
   modal.style.display = 'none';
-  genreSelector(genreEl.value);
+  genreSelector(genreObject.id);
   randomCuisine = randomNumGen(cuisinelist.length);
   fetchResturant(zipCode, cuisinelist[randomCuisine])
-
-  let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCuisine] };
+  let addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
   searchHistory.push(addSave);
   saveHistory();
   genreEl.selectedIndex = 0;

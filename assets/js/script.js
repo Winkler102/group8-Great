@@ -3,6 +3,7 @@ let genreEl = document.querySelector('#genre')
 let zipRequestEl = document.querySelector('#zipRequest')
 let zipSubmitEl = document.querySelector('#zipSubmit')
 let zipFormEl = document.querySelector('#zipForm')
+let resultsEl = document.querySelector('#results')
 let searchHistory = [];
 let searchHistoryEl = document.querySelector('#searchHistory')
 let cuisinelist = ['Sandwiches', 'American', 'Bar Food', 'Italian', 'Mexican', 'Pizza', 'Dali Food', 'Japanese']
@@ -19,8 +20,6 @@ let diaplayZipModal = function () {
     zipModal.style.display = 'block';
   }
 }
-
-
 
 // Get the button that opens the modal
 var btn = document.getElementById('myBtn');
@@ -53,8 +52,7 @@ const genreSelector = function (genre) {
       movieChoosen = randomNumGen(5);
       movieTitle = data.results[movieChoosen].original_title;
       movieOverview = data.results[movieChoosen].overview;
-      console.log(movieTitle);
-      console.log(movieOverview);
+      displayMovieInfo();
     })
 }
 
@@ -68,6 +66,20 @@ let genreList = function () {
     })
     )
 }
+
+let displayMovieInfo = function () {
+  MovieInfoDiv = document.createElement('div');
+
+  movieTitleHeading = document.createElement('h4');
+  movieTitleHeading.textContent = movieTitle;
+
+  movieOverviePrint = document.createElement('p');
+  movieOverviePrint.textContent = movieOverview;
+
+  MovieInfoDiv.appendChild(movieTitleHeading);
+  MovieInfoDiv.appendChild(movieOverviePrint);
+  resultsEl.appendChild(MovieInfoDiv);
+};
 
 let fetchResturant = function (foodZip, foodType) {
   foodApiAddress = 'https://api.documenu.com/v2/restaurants/zip_code/' + foodZip + '?size=5&cuisine=' + foodType + '&key=983626163e2a685b3ade4ddc277fc658'
@@ -95,9 +107,11 @@ let fetchResturant = function (foodZip, foodType) {
 
 let createFoodLink = function () {
   foodButton = document.createElement('a')
+  console.log(foodSite);
   foodButton.setAttribute('href', foodSite);
   foodButton.setAttribute('target', '_blank');
   foodButton.textContent = foodName;
+  resultsEl.appendChild(foodButton);
 }
 
 let randomNumGen = function (max) {
@@ -156,6 +170,7 @@ let handleSelection = function () {
   genreSelector(genreEl.value);
   randomCuisine = randomNumGen(cuisinelist.length);
   fetchResturant(zipCode, cuisinelist[randomCuisine])
+
   let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCuisine] };
   searchHistory.push(addSave);
   saveHistory();

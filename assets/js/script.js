@@ -1,12 +1,40 @@
 // We Are awesome
 let genreEl = document.querySelector('#genre')
-let zipRequestEl = document.querySelector('#zipRequest');
-let zipSubmitEl = document.querySelector('#zipSubmit');
+let zipRequestEl = document.querySelector('#zipRequest')
+let zipSubmitEl = document.querySelector('#zipSubmit')
 let zipFormEl = document.querySelector('#zipForm')
 let searchHistory = [];
 let cuisinelist = ['Sandwiches', 'American', 'Bar Food', 'Italian', 'Mexican', 'Pizza', 'Dali Food', 'Japanese']
 
-var genreSelector = function (genre) {
+function get (x) {
+  return document.getElementById(x)
+}
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById('myBtn');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName('close')[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+  modal.style.display = 'block'
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = 'none'
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = 'none'
+  }
+}
+const genreSelector = function (genre) {
   fetch('https://api.themoviedb.org/3/discover/movie?api_key=f0c90416c29040e056b30db72789fae5&with_genres=' + genre + '&language=en-US')
 
     .then(response => response.json())
@@ -14,12 +42,16 @@ var genreSelector = function (genre) {
     .then(data => console.log(data))
 }
 
-var genreList = function () {
+// Fetch request for a list of all genres - use to find the numbers mapping to the genre. Returns an Object
+let genreList = function () {
   fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f0c90416c29040e056b30db72789fae5&language=en-US')
-
     .then(response => response.json())
-
     .then(data => console.log(data))
+    .then(data.genres.forEach((item, i) => {
+      var newItem = document.createElement('option')
+      get ('genre').appendChild(newItem)
+    })
+    )
 }
 
 let fetchResturant = function (foodZip, foodType) {
@@ -77,9 +109,9 @@ let loadHistory = function () {
 
 let handleSelection = function () {
   genreSelector(genreEl.value);
-  randomCusine = randomNumGen(cuisinelist.length);
-  fetchResturant(zipCode, cuisinelist[randomCusine])
-  let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCusine] };
+  randomCuisine = randomNumGen(cuisinelist.length);
+  fetchResturant(zipCode, cuisinelist[randomCuisine])
+  let addSave = { genreType: genreEl.value, cusineType: cuisinelist[randomCuisine] };
   searchHistory.push(addSave);
   saveHistory();
 };
@@ -89,5 +121,3 @@ zipFormEl.addEventListener('submit', pullZip)
 genreList()
 
 loadHistory();
-
-

@@ -99,7 +99,8 @@ let fetchResturant = function (foodZip, foodType) {
           else {
             console.log('No results')
             errorFood = document.createElement('p');
-            errorFood.textContent = 'No Results';
+            errorFood.textContent = 'No Resturant Results';
+            resultsEl.appendChild(errorFood)
           }
         })
       } else {
@@ -155,17 +156,18 @@ let loadHistory = function () {
 }
 
 let displayHistory = function () {
-  for (i = 0; i < searchHistoryEl.length || i < 5; i++) {
+  searchHistoryEl.innerHTML = '';
+  for (i = 0; i < 5; i++) {
     historyButton = document.createElement('button');
     historyButton.setAttribute('onclick', 'handleHistory(' + i + ')');
-    historyButton.textContent = searchHistory[i].genreName;
-    searchHistoryEl.appendChild(historyButton);
+    if (searchHistory[i]) {
+      historyButton.textContent = searchHistory[i].genreName;
+      searchHistoryEl.appendChild(historyButton);
+    }
   }
 };
 
 let handleHistory = function (index) {
-  console.log(searchHistory[index].genreType);
-  console.log(searchHistory[index].cusineType);
   genreSelector(searchHistory[index].genreType);
   fetchResturant(zipCode, searchHistory[index].cusineType);
 };
@@ -185,6 +187,7 @@ let handleSelection = function (e) {
   addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
   searchHistory.forEach(removeSearchDuplicates);
   searchHistory.push(addSave);
+  displayHistory();
   saveHistory();
   genreEl.selectedIndex = 0;
 };

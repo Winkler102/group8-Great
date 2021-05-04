@@ -4,13 +4,23 @@ let zipRequestEl = document.querySelector('#zipRequest')
 let zipSubmitEl = document.querySelector('#zipSubmit')
 let zipFormEl = document.querySelector('#zipForm')
 let searchHistory = [];
+let searchHistoryEl = document.querySelector('#searchHistory')
 let cuisinelist = ['Sandwiches', 'American', 'Bar Food', 'Italian', 'Mexican', 'Pizza', 'Dali Food', 'Japanese']
 
-function get (x) {
+function get(x) {
   return document.getElementById(x)
 }
 // Get the modal
 var modal = document.getElementById('myModal');
+var zipModal = document.getElementById('zipModal');
+
+let diaplayZipModal = function () {
+  if (!zipCode) {
+    zipModal.style.display = 'block';
+  }
+}
+
+
 
 // Get the button that opens the modal
 var btn = document.getElementById('myBtn');
@@ -39,17 +49,22 @@ const genreSelector = function (genre) {
 
     .then(response => response.json())
 
-    .then(data => console.log(data))
+    .then(function (data) {
+      movieChoosen = randomNumGen(5);
+      movieTitle = data.results[movieChoosen].original_title;
+      movieOverview = data.results[movieChoosen].overview;
+      console.log(movieTitle);
+      console.log(movieOverview);
+    })
 }
 
 // Fetch request for a list of all genres - use to find the numbers mapping to the genre. Returns an Object
 let genreList = function () {
   fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f0c90416c29040e056b30db72789fae5&language=en-US')
     .then(response => response.json())
-    .then(data => console.log(data))
-    .then(data.genres.forEach((item, i) => {
+    .then(data => data.genres.forEach((item, i) => {
       var newItem = document.createElement('option')
-      get ('genre').appendChild(newItem)
+      get('genre').appendChild(newItem)
     })
     )
 }
@@ -68,7 +83,7 @@ let fetchResturant = function (foodZip, foodType) {
           }
           else {
             console.log('No results')
-            errorFood = document.createElement('p')
+            errorFood = document.createElement('p');
             errorFood.textContent = 'No Results';
           }
         })
@@ -99,6 +114,7 @@ let loadZip = function () {
 
 let pullZip = function () {
   event.preventDefault();
+  zipModal.style.display = 'none';
   zipCode = zipRequestEl.value;
   localStorage.setItem('zip', JSON.stringify(zipCode));
   zipRequestEl.value = "";
@@ -125,7 +141,7 @@ let displayHistory = function () {
     historyGenre = searchHistory[i].genreType;
     historyCusine = searchHistory[i].cusineType;
     historyButton.setAttribute('onclick', 'handleHistory()');
-    historyButton.textContent = 'PastChoice';
+    historyButton.textContent = 'place Holder text';
     searchHistoryEl.appendChild(historyButton);
   }
 };
@@ -136,6 +152,7 @@ let handleHistory = function () {
 };
 
 let handleSelection = function () {
+  modal.style.display = 'none';
   genreSelector(genreEl.value);
   randomCuisine = randomNumGen(cuisinelist.length);
   fetchResturant(zipCode, cuisinelist[randomCuisine])
@@ -147,6 +164,8 @@ let handleSelection = function () {
 
 genreEl.addEventListener('change', handleSelection)
 zipFormEl.addEventListener('submit', pullZip)
-genreList()
 
+loadZip();
+genreList()
 loadHistory();
+diaplayZipModal();

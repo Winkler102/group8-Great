@@ -4,7 +4,8 @@
 
 A website where you can get a random movie and resturant to make A movie night.
 
-  ![Screenshot](./assets\img\READMEScreenshot.png)
+![READMEScreenshot](https://user-images.githubusercontent.com/77582349/117223653-bae1d880-add3-11eb-88ac-1110ebb9961e.png)
+
 
 ## Website Link
 

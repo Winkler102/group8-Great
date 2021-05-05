@@ -94,12 +94,14 @@ footer img:hover{
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #474e5d;
+  /* background-color: #474e5d; */
   color: white;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+
+  text-align: center;
 }
 
 html {
@@ -231,4 +233,10 @@ footer a {
 .floatLeft{
   float:left;margin-right:20px
   
+}
+
+.box {
+  width: 80%;
+  justify-self: center;
+  margin: 10px 10%;
 }

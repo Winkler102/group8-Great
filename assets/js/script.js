@@ -15,7 +15,7 @@ function get(x) {
 var modal = document.getElementById('myModal');
 var zipModal = document.getElementById('zipModal');
 
-let diaplayZipModal = function () {
+let displayZipModal = function () {
   if (!zipCode) {
     zipModal.style.display = 'block';
   }
@@ -49,10 +49,11 @@ const genreSelector = function (genre) {
     .then(response => response.json())
 
     .then(function (data) {
-      movieChoosen = randomNumGen(5);
-      movieTitle = data.results[movieChoosen].original_title;
-      movieOverview = data.results[movieChoosen].overview;
-      displayMovieInfo();
+      movieChosen = randomNumGen(5);
+      movieTitle = data.results[movieChosen].original_title;
+      movieOverview = data.results[movieChosen].overview;
+      console.log(movieTitle);
+      console.log(movieOverview);
     })
 }
 

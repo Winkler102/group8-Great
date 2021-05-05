@@ -62,11 +62,15 @@ let genreList = function () {
   fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f0c90416c29040e056b30db72789fae5&language=en-US')
     .then(response => response.json())
     .then(data => data.genres.forEach((item, i) => {
-      var newItem = document.createElement('option')
-      newItem.value = JSON.stringify({ id: item.id, nameGenre: item.name });
-      newItem.textContent = item.name;
-      newItem.setAttribute(`data-genre`, item.name);
-      genreEl.appendChild(newItem)
+
+      var genreDropDownButton = document.createElement('button')
+      genreDropDownButton.textContent = item.name;
+      genreDropDownButton.setAttribute('class', 'dropdown-item');
+      genreDropDownButton.setAttribute('style', 'width: 600px;');
+      genreDropDownButton.setAttribute('onclick', 'handleSelection2(' + item.id + ', "' + item.name + '")');
+      document.querySelector('.dropdown-content').appendChild(genreDropDownButton);
+
+
     })
     )
 }
@@ -186,13 +190,13 @@ let removeSearchDuplicates = function (item, index) {
   }
 };
 
-let handleSelection = function (e) {
-  genreObject = JSON.parse(e.target.value);
+
+let handleSelection2 = function (kool, krazy) {
   modal.style.display = 'none';
-  genreSelector(genreObject.id);
+  genreSelector(kool);
   randomCuisine = randomNumGen(cuisinelist.length);
   fetchResturant(zipCode, cuisinelist[randomCuisine])
-  addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
+  addSave = { genreType: kool, genreName: krazy, cusineType: cuisinelist[randomCuisine] };
   searchHistory.forEach(removeSearchDuplicates);
   searchHistory.push(addSave);
   if (searchHistory.length > 5) {
@@ -204,7 +208,6 @@ let handleSelection = function (e) {
 };
 
 
-genreEl.addEventListener('change', handleSelection)
 zipFormEl.addEventListener('submit', pullZip)
 
 loadZip();

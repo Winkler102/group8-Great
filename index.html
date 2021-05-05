@@ -48,11 +48,20 @@
   <!-- Selection for intial Genre-->
   <section class="modal" id="myModal">
     <div class="modal-content">
-      <label for="genre">Choose a Genre:</label>
-      <select name="genre" id="genre">
-        <!-- Would like to dynamically populate options below with API -->
-        <option selected disabled>Please Choose A Genre</option>
-      </select>
+      <div class="dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4" style="width: 600px;">
+            <span>Genre</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <div id="searchHistory"></div>

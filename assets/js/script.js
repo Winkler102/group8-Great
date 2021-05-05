@@ -187,6 +187,9 @@ let handleSelection = function (e) {
   addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
   searchHistory.forEach(removeSearchDuplicates);
   searchHistory.push(addSave);
+  if (searchHistory.length > 5) {
+    searchHistory.splice(0, 1)
+  }
   displayHistory();
   saveHistory();
   genreEl.selectedIndex = 0;

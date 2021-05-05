@@ -1,181 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-}
-
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
-}
-
-.container {
-  padding: 0 16px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
-footer{
-  position: absolute;
-            padding: 10px 10px 0px 10px;
-            bottom: 0;
-            width: 100%;
-            /* Height of the footer*/ 
-            height: 75px;
-            background: #474e5d;
-            
-            
-    
-}
-h1 img{
-    margin: 5px;   
-    vertical-align: middle;
-}
-
-footer h1{
-    margin: 0;
-    display: inline;
-    color: white;
-    
-}
-
-footer h1 a{
-    text-decoration: none;
- 
-   
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-  
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-<body>
 
-<div class="about-section">
-  <h1>About Us Page</h1>
-  <p><a href="./index.html">Home Page</a></p>
-  <p>A website that will be your guide to movie and a meal
-    
+<body style="background-color: white;">
+
+  <div class="about-section">
+    <h1>About Us Page</h1>
+    <img src="./assets/img/logo.png" alt="MovieX Logo">
+    <p><a href="./index.html">Home Page</a></p>
+    <p>A website that will be your guide to movie and a meal
+
     </p>
     <p> 1. Enter in Zip code. </p>
     <p>2. Select a movie genre</p>
     <p>3. Receive a movie and local restaurant</p>
-</div>
+  </div>
 
-<h2 style="text-align:center">Our Team</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Paul" style="width:100%">
-      <div class="container">
-        <h2>Paul Thomas</h2>
-        <p class="title">Designer</p>
-        <p>Paul Worked on HTML and CSS to style the website</p>
-        <p><button class="button">Contact</button></p>
+  <main>
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="/w3images/team1.jpg" alt="Paul" style="width:100%">
+          <div class="container">
+            <h2>Paul Thomas</h2>
+            <p class="title">Designer</p>
+            <p>Paul Worked on HTML and CSS to style the website</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/w3images/team2.jpg" alt="Benjamin" style="width:100%">
+          <div class="container">
+            <h2>Benjamin Winkler</h2>
+            <p class="title">Designer</p>
+            <p>Benjamin worked on JS on this project to help bring it to life</p>
+            <p><button class="button">Contact</button> </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/w3images/team3.jpg" alt="Jason" style="width:100%">
+          <div class="container">
+            <h2>Jason Perez</h2>
+            <p class="title">Designer</p>
+            <p>Jason Worked on HTML and CSS to style the website</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team2.jpg" alt="Benjamin" style="width:100%">
-      <div class="container">
-        <h2>Benjamin Winkler</h2>
-        <p class="title">Designer</p>
-        <p>Benjamin worked on JS on this project to help bring it to life</p>
-        <p><button class="button" >Contact</button> </p>
+    <div class="column">
+      <div class="card">
+        <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+        <div class="container">
+          <h2>John Devine</h2>
+          <p class="title">Designer</p>
+          <p>John worked on JS on this project to help bring it to life</p>
+          <p><button class="button">Contact</button></p>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team3.jpg" alt="Jason" style="width:100%">
-      <div class="container">
-        <h2>Jason Perez</h2>
-        <p class="title">Designer</p>
-        <p>Jason Worked on HTML and CSS to style the website</p>
-        <p><button class="button">Contact</button></p>
-      </div>
     </div>
-  </div>
-</div>
+  </main>
 
-<div class="column">
-  <div class="card">
-    <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-    <div class="container">
-      <h2>John Devine</h2>
-      <p class="title">Designer</p>
-      <p>John worked on JS on this project to help bring it to life</p>
-      <p><button class="button">Contact</button></p>
+  <footer>
+    <div class="footerFix">
+      <h1>Please Click The Github Image To See the Github Repository</h1>
+      <a href="https://github.com/Winkler102/group8-Great"><img alt="Group 8's Github"
+          src="./assets/img/github-logo.jpg" width="95" height="55">
     </div>
-  </div>
-</div>
-</div>
-<br>
-
-
-<footer>
-  <h1>
-      Please Click The Github Image To See the Github Repository<a href="https://github.com/Winkler102/group8-Great"><img alt="Group 8's Github" src="./assets/img/github-logo.jpg" width="95" height="55">
-      </a>
-  </h1>
-</footer>
+  </footer>
 
 
 </body>

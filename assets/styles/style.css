@@ -1,5 +1,6 @@
 h1{
-  color: firebrick;
+  color: #cbbfb2
+  ;
 }
 
 /* The Modal (background) */
@@ -52,6 +53,7 @@ border-radius: 12px;
 position: relative;
 top: -3px;
 box-shadow: 0 3px var(--grey);
+color: #cf9d36;
 }
 
 .btn:hover {
@@ -89,7 +91,8 @@ footer h1{
   margin: 0;
   display: inline;
 
-  color: white;
+  color: #243a56
+  te;
   margin: 0;
 }
 
@@ -123,16 +126,30 @@ footer a {
 .about-section {
   padding: 50px;
   text-align: center;
-  color: white;
+  color: #cbbfb2;
   padding: 50px;
-  background-color: #474e5d;
+  background-color: #243a56;
 }
+
+.about-section a {
+  color: #cf9d36;
+}
+
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-
   text-align: center;
+  background-color: #243a56;
+}
+
+.header {
+  background-color: #243a56;
+}
+
+.fillerText {
+  color: #cbbfb2;
+
 }
 
 
@@ -223,12 +240,12 @@ h1 img {
   float:left;margin-right:20px
 
 }
-body {
+/* body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background-color: #474e5d;
   text-align: center;
-}
+} */
 
 .box {
   width: 80%;

@@ -5,28 +5,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link rel="stylesheet" href="assets/styles/style.css">
-  <title>Document</title>
+  <title>MovieX</title>
+
 </head>
 
-<body>
+<body style="background-color: #474e5d; text-align: center;">
 
-  <nav class="header" id='navbar'>
-    <section>
-      <h1>Welcome to MovieX</h1>
-      <ul>
-        <li>
-          <a href="./index.html">Home Page</a>
-        </li>
-        <li>
-          <a href="#click-me">Click Me</a>
-        </li>
-        <li>
-          <a href="./about-us.html">About Us</a>
-        </li>
-      </ul>
-    </section>
-  </nav>
+  <div class="about-section">
+    <h1>Welcome To</h1>
+    <img src="./assets/img/logo.png" alt="MovieX Logo">
+    <p><a href="./about-us.html">About Us</a></p>
+    <p>A website that will be your guide to movie and a meal
+
+    </p>
+    <p> 1. Enter in Zip code. </p>
+    <p>2. Select a movie genre</p>
+    <p>3. Receive a movie and local restaurant</p>
+  </div>
+
 
   <section class="header" id="intro">
     <div>
@@ -61,18 +59,12 @@
   <div id="searchHistory"></div>
 
   <!-- Selection for food cuisine -->
-  <div>
-    <label for="cuisine">Cuisine of Choice:</label>
-    <selection name="cuisine" id="cuisine">
-      <option selected disabled>Please Choose A Cuisine</option> 
-      <option></option>
-    </selection>
-  </div>
+
 
   <!--Section to display selected resturant-->
-  <div></div>
 
-  <div id="searchHistory"></div>
+
+
 
   <div id="results"></div>
 

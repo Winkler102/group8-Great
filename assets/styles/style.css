@@ -78,15 +78,9 @@ footer h1{
   color: black;
 
 }
-
-footer h1 a{
-  text-decoration: none;
-
-
-}
 footer h1 a:hover{
   color: yellow;
-
+text-decoration: none;
 }
 footer img:hover{
   opacity: 50%;
@@ -170,16 +164,6 @@ footer {
 h1 img {
   margin: 5px;
   vertical-align: middle;
-}
-
-footer h1 {
-  margin: 0;
-  display: inline;
-  color: white;
-}
-
-footer a {
-  text-decoration: none;
 }
 
 .footerFix {

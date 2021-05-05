@@ -241,15 +241,15 @@ h1 img {
   float:left;margin-right:20px
 
 }
-/* body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-color: #474e5d;
-  text-align: center;
-} */
 
 .box {
   width: 80%;
   justify-self: center;
   margin: 10px 10%;
+}
+
+@media screen and (max-width: 400px) {
+  .footerFix h1 {
+    font-size: 65%;
+  }
 }

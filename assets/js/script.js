@@ -7,6 +7,7 @@ let resultsEl = document.querySelector('#results')
 let searchHistory = [];
 let searchHistoryEl = document.querySelector('#searchHistory')
 let cuisinelist = ['Sandwiches', 'American', 'Bar Food', 'Italian', 'Mexican', 'Pizza', 'Dali Food', 'Japanese']
+let movieIteration = 0;
 
 function get(x) {
   return document.getElementById(x)
@@ -73,8 +74,12 @@ let genreList = function () {
 
 let displayMovieInfo = function () {
   MovieInfoDiv = document.createElement('div');
+  MovieInfoDiv.setAttribute('class', `box movie` + movieIteration);
+  movieLocation = '.movie' + movieIteration;
+  movieIteration++;
 
-  movieTitleHeading = document.createElement('h4');
+  movieTitleHeading = document.createElement('h2');
+  movieTitleHeading.setAttribute('class', 'subtitle is-3');
   movieTitleHeading.textContent = movieTitle;
 
   movieOverviePrint = document.createElement('p');
@@ -100,8 +105,9 @@ let fetchResturant = function (foodZip, foodType) {
           else {
             console.log('No results')
             errorFood = document.createElement('p');
+            errorFood.setAttribute('style', 'color: red');
             errorFood.textContent = 'No Resturant Results';
-            resultsEl.appendChild(errorFood)
+            document.querySelector(movieLocation).appendChild(errorFood)
           }
         })
       } else {
@@ -117,8 +123,9 @@ let createFoodLink = function () {
   foodButton = document.createElement('a')
   foodButton.setAttribute('href', foodSite);
   foodButton.setAttribute('target', '_blank');
+  foodButton.setAttribute('class', "button is-ghost");
   foodButton.textContent = foodName;
-  resultsEl.appendChild(foodButton);
+  document.querySelector(movieLocation).appendChild(foodButton);
 }
 
 let randomNumGen = function (max) {
@@ -160,6 +167,7 @@ let displayHistory = function () {
   searchHistoryEl.innerHTML = '';
   for (i = 0; i < 5; i++) {
     historyButton = document.createElement('button');
+    historyButton.setAttribute('class', "button is-primary mt*-3");
     historyButton.setAttribute('onclick', 'handleHistory(' + i + ')');
     if (searchHistory[i]) {
       historyButton.textContent = searchHistory[i].genreName;
@@ -188,6 +196,9 @@ let handleSelection = function (e) {
   addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
   searchHistory.forEach(removeSearchDuplicates);
   searchHistory.push(addSave);
+  if (searchHistory.length > 5) {
+    searchHistory.splice(0, 1)
+  }
   displayHistory();
   saveHistory();
   genreEl.selectedIndex = 0;

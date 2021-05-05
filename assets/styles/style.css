@@ -12,8 +12,9 @@ top: 0;
 width: 100%; /* Full width */
 height: 100%; /* Full height */
 overflow: auto; /* Enable scroll if needed */
-background-color: rgb(0,0,0); /* Fallback color */
-background-color: rgba(47,111,135,0.4); /* Black w/ opacity */
+
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
 }
 
 /* Modal Content/Box */
@@ -38,6 +39,7 @@ color: black;
 text-decoration: none;
 cursor: pointer;
 }
+
 .btn {
 outline: none;
 border: none;
@@ -67,24 +69,71 @@ top: 0;
 }
 footer{
   background-color: gray;
-  padding:22px;
   border: 3px solid black ;
 
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 0px 10px;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  /* Height of the footer*/
+  height: 100px;
+  background: #474e5d;  
 }
 
 footer h1{
   margin: 0;
   display: inline;
-  color: black;
 
+  color: white;
+  margin: 0;
+}
+
+footer h1 a{
+  text-decoration: none;
 }
 footer h1 a:hover{
   color: yellow;
 text-decoration: none;
 }
+
 footer img:hover{
   opacity: 50%;
 }
+
+
+footer a {
+  text-decoration: none;
+}
+
+.footerFix {
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  color: white;
+  padding: 50px;
+  background-color: #474e5d;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+
+  text-align: center;
+}
+
 
 html {
   box-sizing: border-box;
@@ -106,13 +155,6 @@ html {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-}
-
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #2f6f87;
-  color: white;
 }
 
 .container {
@@ -140,25 +182,13 @@ html {
   text-align: center;
   cursor: pointer;
   width: 100%;
+  flex: 1 2;
+  width: auto;
+  margin: 5px;
 }
 
 .button:hover {
   background-color: #555;
-}
-
-footer {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 10px 0px 10px;
-  bottom: 0px;
-  right: 0;
-  left: 0;
-  width: 100%;
-  /* Height of the footer*/
-  height: 100px;
-  background: #474e5d;
-
 }
 
 h1 img {
@@ -166,14 +196,10 @@ h1 img {
   vertical-align: middle;
 }
 
-.footerFix {
-  position: absolute;
-  bottom: 0;
-  width: 99%;
-  height: 100%;
+
+.searchHistory{
+
   display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 @media screen and (max-width: 650px) {
@@ -201,4 +227,10 @@ body {
   margin: 0;
   background-color: #474e5d;
   text-align: center;
+}
+
+.box {
+  width: 80%;
+  justify-self: center;
+  margin: 10px 10%;
 }

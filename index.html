@@ -6,45 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/styles/style.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
   <title>Document</title>
 </head>
 
 <body>
 
-  <nav class="about-section" id='navbar'>
+  <nav class="header" id='navbar'>
     <section>
       <h1>Welcome to MovieX</h1>
       <ul>
         <li>
-          <a href="#learn">Learn</a>
+          <a href="./index.html">Home Page</a>
         </li>
         <li>
           <a href="#click-me">Click Me</a>
         </li>
         <li>
-          <a href="#about-us">About Us</a>
+          <a href="./about-us.html">About Us</a>
         </li>
       </ul>
     </section>
   </nav>
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <section class="header" id="intro">
-          <div>
-            <h1>Find Your Friday Night</h1>
-          </div>
-          <div> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
-            Netflix and Chill? it's dinner and a movie</div>
-          <br>
-          <button id="myBtn" class="btn">Click Here to Start!</button>
-        </section>
-        </div>
-      </div>
+
+  <section class="header" id="intro">
+    <div>
+      <h1>Find Your Friday Night</h1>
     </div>
-  
+    <div> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
+      Netflix and Chill? it's dinner and a movie</div>
+    <br>
+    <button id="myBtn" class="btn">Click Here to Start!</button>
+  </section>
 
   <!-- Please make this a modal that pops up on open-->
   <section class="modal" id="zipModal">
@@ -58,8 +50,6 @@
     </div>
   </section>
   <!-- Selection for intial Genre-->
-
-  
   <section class="modal" id="myModal">
     <div class="modal-content">
       <label for="genre">Choose a Genre:</label>
@@ -85,9 +75,10 @@
   <div id="searchHistory"></div>
 
   <div id="results"></div>
-  
 
   <script src="assets/js/script.js"></script>
+
+
 </body>
 
 </html>

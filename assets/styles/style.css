@@ -1,10 +1,11 @@
 h1{
   color: firebrick;
 }
+
 /* The Modal (background) */
 .modal {
 display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
+position: centered; /* Stay in place */
 z-index: 1; /* Sit on top */
 left: 0;
 top: 0;
@@ -12,7 +13,7 @@ width: 100%; /* Full width */
 height: 100%; /* Full height */
 overflow: auto; /* Enable scroll if needed */
 background-color: rgb(0,0,0); /* Fallback color */
-background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+background-color: rgba(47,111,135,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -60,7 +61,7 @@ box-shadow: 0 0px var(--grey);
 top: 0;
 }
 #rcorners1 {
-  border-radius: 25px; 
+  border-radius: 25px;
   color: gray;
   box-shadow: 5px 5px 10px black;
 }
@@ -68,20 +69,20 @@ footer{
   background-color: gray;
   padding:22px;
   border: 3px solid black ;
-  
+
 }
 
 footer h1{
   margin: 0;
   display: inline;
   color: black;
-  
+
 }
 
 footer h1 a{
   text-decoration: none;
 
- 
+
 }
 footer h1 a:hover{
   color: yellow;
@@ -89,16 +90,6 @@ footer h1 a:hover{
 }
 footer img:hover{
   opacity: 50%;
-}
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
-}
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
 }
 
 html {
@@ -126,7 +117,7 @@ html {
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #474e5d;
+  background-color: #2f6f87;
   color: white;
 }
 
@@ -142,7 +133,7 @@ html {
 }
 
 .title {
-  color: grey;
+  color: #243a56;
 }
 
 .button {
@@ -215,9 +206,15 @@ footer a {
 }
 .floatRight{
   float:right;margin-left:20px
-  
+
 }
 .floatLeft{
   float:left;margin-right:20px
-  
+
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #474e5d;
+  text-align: center;
 }

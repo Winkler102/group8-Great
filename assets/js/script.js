@@ -116,6 +116,7 @@ let createFoodLink = function () {
   foodButton = document.createElement('a')
   foodButton.setAttribute('href', foodSite);
   foodButton.setAttribute('target', '_blank');
+  foodButton.setAttribute('class', "button is-ghost");
   foodButton.textContent = foodName;
   resultsEl.appendChild(foodButton);
 }
@@ -159,6 +160,7 @@ let displayHistory = function () {
   searchHistoryEl.innerHTML = '';
   for (i = 0; i < 5; i++) {
     historyButton = document.createElement('button');
+    historyButton.setAttribute('class', "button is-primary mt*-3");
     historyButton.setAttribute('onclick', 'handleHistory(' + i + ')');
     if (searchHistory[i]) {
       historyButton.textContent = searchHistory[i].genreName;

@@ -28,7 +28,8 @@
     <div>
       <h1>Find Your Friday Night</h1>
     </div>
-    <p class="fillerText"> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
+    <p class="fillerText"> Select a genre below and we'll set you up with with the a movie to watch and a place to order
+      dinner.
       Netflix and Chill? it's dinner and a movie</p>
     <br>
     <button id="myBtn" class="btn">Click Here to Start!</button>
@@ -48,16 +49,17 @@
   <!-- Selection for intial Genre-->
   <section class="modal" id="myModal">
     <div class="modal-content">
-      <div class="dropdown is-hoverable">
+      <div id='dropdownMain' class="dropdown">
         <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4" style="width: 600px;">
+          <button id= "dropBtn" class="button" aria-haspopup="true" aria-controls="dropdown-menu2" style="width: 60vw;"
+            onclick="dropDownHandler()">
             <span>Genre</span>
             <span class="icon is-small">
               <i class="fas fa-angle-down" aria-hidden="true"></i>
             </span>
           </button>
         </div>
-        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
           <div class="dropdown-content">
           </div>
         </div>
@@ -67,6 +69,7 @@
   <div id="searchHistory"></div>
 
   <!-- Selection for food cuisine -->
+
 
 
   <!--Section to display selected resturant-->

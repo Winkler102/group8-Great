@@ -66,7 +66,7 @@ let genreList = function () {
       var genreDropDownButton = document.createElement('button')
       genreDropDownButton.textContent = item.name;
       genreDropDownButton.setAttribute('class', 'dropdown-item');
-      genreDropDownButton.setAttribute('style', 'width: 600px;');
+      genreDropDownButton.setAttribute('style', 'width: 60vw;');
       genreDropDownButton.setAttribute('onclick', 'handleSelection2(' + item.id + ', "' + item.name + '")');
       document.querySelector('.dropdown-content').appendChild(genreDropDownButton);
 
@@ -207,6 +207,9 @@ let handleSelection2 = function (kool, krazy) {
   genreEl.selectedIndex = 0;
 };
 
+let dropDownHandler = function () {
+  document.querySelector('#dropdownMain').classList.toggle("is-active");
+}
 
 zipFormEl.addEventListener('submit', pullZip)
 

@@ -13,17 +13,15 @@
 
 <body>
 
-  <div class="about-section">
+  <header class="about-section">
     <h1>Welcome To</h1>
     <img src="./assets/img/logo.png" alt="MovieX Logo">
     <p><a href="./about-us.html">About Us</a></p>
-    <p>A website that will be your guide to movie and a meal
-
-    </p>
+    <p>A website that will be your guide to movie and a meal</p>
     <p> 1. Enter in Zip code. </p>
-    <p>2. Select a movie genre</p>
-    <p>3. Receive a movie and local restaurant</p>
-  </div>
+    <p> 2. Select a movie genre</p>
+    <p> 3. Receive a movie and local restaurant</p>
+  </header>
 
 
   <section class="header" id="intro">
@@ -52,6 +50,7 @@
     <div class="modal-content">
       <label for="genre">Choose a Genre:</label>
       <select name="genre" id="genre">
+        <!-- Would like to dynamically populate options below with API -->
         <option selected disabled>Please Choose A Genre</option>
       </select>
     </div>
@@ -59,12 +58,17 @@
   <div id="searchHistory"></div>
 
   <!-- Selection for food cuisine -->
-
+  <div>
+    <label for="cuisine">Cuisine of Choice:</label>
+    <selection name="cuisine" id="cuisine">
+      <option selected disabled>Please Choose A Cuisine</option>
+      <option></option>
+    </selection>
+  </div>
+  =======
+  <!-- >>>>>>> cc386b2a211e612918030e625f7a759fef25c173 -->
 
   <!--Section to display selected resturant-->
-
-
-
 
   <div id="results"></div>
 
@@ -72,3 +76,4 @@
 </body>
 
 </html>
+<!-- >>>>>>> 1675d47620ece460c230deebde63a05acbccbae6 -->

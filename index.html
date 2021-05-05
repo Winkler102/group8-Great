@@ -5,31 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link rel="stylesheet" href="assets/styles/style.css">
-  <title>MovieX</title>
-
+  <title>Document</title>
 </head>
 
 <body>
 
-  <header class="about-section">
-    <h1>Welcome To</h1>
-    <img src="./assets/img/logo.png" alt="MovieX Logo">
-    <p class="hyperlink"><a href="./about-us.html">About Us</a></p>
-    <p>A website that will be your guide to movie and a meal</p>
-    <p> 1. Enter in Zip code. </p>
-    <p> 2. Select a movie genre</p>
-    <p> 3. Receive a movie and local restaurant</p>
-  </header>
-
+  <nav class="header" id='navbar'>
+    <section>
+      <h1>Welcome to MovieX</h1>
+      <ul>
+        <li>
+          <a href="#learn">Learn</a>
+        </li>
+        <li>
+          <a href="#click-me">Click Me</a>
+        </li>
+        <li>
+          <a href="#about-us">About Us</a>
+        </li>
+      </ul>
+    </section>
+  </nav>
 
   <section class="header" id="intro">
     <div>
       <h1>Find Your Friday Night</h1>
     </div>
-    <p class="fillerText"> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
-      Netflix and Chill? it's dinner and a movie</p>
+    <div> Select a genre below and we'll set you up with with the a movie to watch and a place to order dinner.
+      Netflix and Chill? it's dinner and a movie</div>
     <br>
     <button id="myBtn" class="btn">Click Here to Start!</button>
   </section>
@@ -50,7 +54,6 @@
     <div class="modal-content">
       <label for="genre">Choose a Genre:</label>
       <select name="genre" id="genre">
-        <!-- Would like to dynamically populate options below with API -->
         <option selected disabled>Please Choose A Genre</option>
       </select>
     </div>
@@ -58,17 +61,18 @@
   <div id="searchHistory"></div>
 
   <!-- Selection for food cuisine -->
-  <!-- <div>
+  <div>
     <label for="cuisine">Cuisine of Choice:</label>
     <selection name="cuisine" id="cuisine">
-      <option selected disabled>Please Choose A Cuisine</option>
+      <option selected disabled>Please Choose A Cuisine</option> 
       <option></option>
     </selection>
-  </div> -->
-  
-  <!-- >>>>>>> cc386b2a211e612918030e625f7a759fef25c173 -->
+  </div>
 
   <!--Section to display selected resturant-->
+  <div></div>
+
+  <div id="searchHistory"></div>
 
   <div id="results"></div>
 
@@ -76,4 +80,3 @@
 </body>
 
 </html>
-<!-- >>>>>>> 1675d47620ece460c230deebde63a05acbccbae6 -->

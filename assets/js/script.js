@@ -99,7 +99,8 @@ let fetchResturant = function (foodZip, foodType) {
           else {
             console.log('No results')
             errorFood = document.createElement('p');
-            errorFood.textContent = 'No Results';
+            errorFood.textContent = 'No Resturant Results';
+            resultsEl.appendChild(errorFood)
           }
         })
       } else {
@@ -155,31 +156,38 @@ let loadHistory = function () {
 }
 
 let displayHistory = function () {
+  searchHistoryEl.innerHTML = '';
   for (i = 0; i < 5; i++) {
     historyButton = document.createElement('button');
-    historyGenre = searchHistory[i].genreType;
-    historyCusine = searchHistory[i].cusineType;
-    historyButton.setAttribute('onclick', 'handleHistory()');
-    historyButton.textContent = searchHistory[i].genreName;
-    searchHistoryEl.appendChild(historyButton);
+    historyButton.setAttribute('onclick', 'handleHistory(' + i + ')');
+    if (searchHistory[i]) {
+      historyButton.textContent = searchHistory[i].genreName;
+      searchHistoryEl.appendChild(historyButton);
+    }
   }
 };
 
-let handleHistory = function () {
-  genreSelector(historyGenre);
-  fetchResturant(zipCode, historyCusine);
+let handleHistory = function (index) {
+  genreSelector(searchHistory[index].genreType);
+  fetchResturant(zipCode, searchHistory[index].cusineType);
+};
+
+let removeSearchDuplicates = function (item, index) {
+  if (addSave.genreType === item.genreType) {
+    searchHistory.splice(index, 1);
+  }
 };
 
 let handleSelection = function (e) {
-
   genreObject = JSON.parse(e.target.value);
-
   modal.style.display = 'none';
   genreSelector(genreObject.id);
   randomCuisine = randomNumGen(cuisinelist.length);
   fetchResturant(zipCode, cuisinelist[randomCuisine])
-  let addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
+  addSave = { genreType: genreObject.id, genreName: genreObject.nameGenre, cusineType: cuisinelist[randomCuisine] };
+  searchHistory.forEach(removeSearchDuplicates);
   searchHistory.push(addSave);
+  displayHistory();
   saveHistory();
   genreEl.selectedIndex = 0;
 };

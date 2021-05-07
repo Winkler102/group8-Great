@@ -51,6 +51,7 @@ const genreSelector = function (genre) {
 
     .then(function (data) {
       movieChosen = randomNumGen(5);
+      linkArt = 'http://image.tmdb.org/t/p/w500' + data.results[movieChosen].backdrop_path;
       movieTitle = data.results[movieChosen].original_title;
       movieOverview = data.results[movieChosen].overview;
       displayMovieInfo();
@@ -69,8 +70,6 @@ let genreList = function () {
       genreDropDownButton.setAttribute('style', 'width: 60vw;');
       genreDropDownButton.setAttribute('onclick', 'handleSelection2(' + item.id + ', "' + item.name + '")');
       document.querySelector('.dropdown-content').appendChild(genreDropDownButton);
-
-
     })
     )
 }
@@ -80,7 +79,6 @@ let displayMovieInfo = function () {
   MovieInfoDiv.setAttribute('class', `box movie` + movieIteration);
   movieLocation = '.movie' + movieIteration;
   movieIteration++;
-
   movieTitleHeading = document.createElement('h2');
   movieTitleHeading.setAttribute('class', 'subtitle is-3');
   movieTitleHeading.textContent = movieTitle;
@@ -88,8 +86,14 @@ let displayMovieInfo = function () {
   movieOverviePrint = document.createElement('p');
   movieOverviePrint.textContent = movieOverview;
 
+  movieimagePrimt = document.createElement('img');
+  movieimagePrimt.setAttribute('src', linkArt);
+  movieimagePrimt.setAttribute('width', '200px');
+  movieimagePrimt.setAttribute('height', '200px');
+
   MovieInfoDiv.appendChild(movieTitleHeading);
   MovieInfoDiv.appendChild(movieOverviePrint);
+  MovieInfoDiv.appendChild(movieimagePrimt);
   resultsEl.appendChild(MovieInfoDiv);
 };
 
@@ -123,11 +127,13 @@ let createFoodLink = function () {
   if (!foodSite) {
     foodSite = 'https://www.grubhub.com';
   }
+  lineBreak = document.createElement('br')
   foodButton = document.createElement('a')
   foodButton.setAttribute('href', foodSite);
   foodButton.setAttribute('target', '_blank');
   foodButton.setAttribute('class', "button is-ghost");
   foodButton.textContent = foodName;
+  document.querySelector(movieLocation).appendChild(lineBreak);
   document.querySelector(movieLocation).appendChild(foodButton);
 }
 

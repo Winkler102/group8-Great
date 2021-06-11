@@ -9,7 +9,7 @@ A website where you can get a random movie and resturant to make A movie night.
 
 ## Website Link
 
-<a href='https://winkler102.github.io/group8-Great/index.html'>MovieX</a>
+<a href='https://winkler102.github.io/movie-x/'>MovieX</a>
 
 
 ## Usage 
